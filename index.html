@@ -1,0 +1,210 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+    <title>it's a scream, baby!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cossette+Titre:wght@400;700" rel="stylesheet">
+
+    <style>
+        @keyframes squiggly-anim {
+            0% {
+                -webkit-filter: url("#squiggly-0");
+                filter: url("#squiggly-0");
+            }
+
+            25% {
+                -webkit-filter: url("#squiggly-1");
+                filter: url("#squiggly-1");
+            }
+
+            50% {
+                -webkit-filter: url("#squiggly-2");
+                filter: url("#squiggly-2");
+            }
+
+            75% {
+                -webkit-filter: url("#squiggly-3");
+                filter: url("#squiggly-3");
+            }
+
+            100% {
+                -webkit-filter: url("#squiggly-4");
+                filter: url("#squiggly-4");
+            }
+        }
+
+        #text {
+            animation: squiggly-anim 0.5s linear infinite;
+        }
+
+        body {
+            background-color: white;
+            font-family: helvetica;
+            font-size: 16px;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: rgb(138, 195, 138);
+        }
+
+        .everything {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            width: 500px;
+            height: auto;
+        }
+
+        .simon {
+            margin-left: -420px;
+            z-index: 99;
+        }
+
+        .simon img {
+            border-radius: 20px 0px 48px 0px;
+            z-index: 99;
+            width: 130px;
+            position: absolute;
+            filter: drop-shadow(2px 2px 0 rgb(35, 45, 35)) drop-shadow(-2px 2px 0 rgb(35, 45, 35)) drop-shadow(0 -2px 0 rgb(35, 45, 35)) drop-shadow(0 2px rgb(35, 45, 35)) drop-shadow(0 -2px rgb(35, 45, 35));
+        }
+
+        .main {
+            width: 220px;
+            padding: 10px 10px 10px 30px;
+            margin-left: 90px;
+            background-color: rgb(35, 45, 35);
+            text-align: justify;
+            color: white;
+            position: relative;
+            left: 42%;
+            z-index: -2;
+            border-radius: 0px 10px 10px 0px;
+            transform: translate(-50%, 0%);
+        }
+
+        .main2 {
+            width: 230px;
+            padding: 10px 10px 10px 30px;
+            margin-left: 90px;
+            background-color: rgb(35, 45, 35);
+            position: absolute;
+            left: 42%;
+            z-index: -2;
+            border-radius: 0px 10px 10px 0px;
+            top: -4px;
+            height: 160px;
+            transform: translate(-50%, 0%);
+        }
+
+        #glenplayer02 {
+            position: absolute;
+            line-height: 1.5;
+            left: 190;
+            margin-top: 20px;
+            margin-left: -15px;
+            display: flex;
+            z-index: 99;
+        }
+
+        #glenplayer02 a {
+            text-decoration: none;
+        }
+
+        .music-controls {
+            width: 13px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .playy,
+        .pausee {
+            color: #7a9d7e;
+        }
+
+        .pausee {
+            display: none;
+        }
+
+        .sonata {
+            margin-left: 10px;
+            color: #222;
+        }
+
+        .labeltext {
+            margin-left: 8px;
+            font-family: Arial;
+            font-size: 13px;
+            color: #586d5c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="everything">
+        <div class="simon">
+            <center><span id="text"><img src="simon.png"></span></center>
+        </div>
+        <div class="main2" span id="text">.</div>
+        <div class="main">hi.... <span id="text">(´＿｀) </span> simon <font size="2px" color="#586d5c">aka jack
+            </font>.
+            <u>it</u>/he. adult. 26y<font size="2px" color="#586d5c">♂</font> introject
+            from <a href="https://en.wikipedia.org/wiki/Neighborhood_Watch_(film)">this movie</a>. my physical
+            embodiment is trapped inside a pluralkit proxy. i talk a bit blandly at times, culmination of mental illness
+            and all that fun stuff. ⠀<span id="text"><font size="2px" color="#58ae68">♡</font></span> ⠀<font size="2px">writing,⠀ art,⠀ poetry
+            </font>
+        </div>
+
+        <!-------MUSIC PLAYER BY GLENTHEMES------->
+        <div id="glenplayer02">
+            <div class="music-controls" onclick="songstart();">
+                <div class="playy">►</div>
+                <div class="pausee">❚❚</div>
+            </div>
+            <div class="sonata"> </div>
+            <div class="labeltext">how to hold a knife ⠀⠀-⠀⠀ quannnic</div>
+        </div><!--end music player-->
+
+        <audio id="tune" src="holdaknife.mp3" audio></audio>
+
+        <span class="svg-container">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0">
+                <defs>
+                    <filter id="squiggly-0">
+                        <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0" />
+                        <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+                    </filter>
+                    <filter id="squiggly-1">
+                        <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                    </filter>
+                    <filter id="squiggly-2">
+                        <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                    </filter>
+                    <filter id="squiggly-3">
+                        <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+                    </filter>
+                    <filter id="squiggly-4">
+                        <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+                    </filter>
+                </defs>
+            </svg>
+        </span>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script src="//static.tumblr.com/gtjt4bo/QRmphdsdv/glenplayer02.js"></script>
+
+
+</body>
+
+</html>
